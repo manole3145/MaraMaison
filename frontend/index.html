@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LeBonCoin – Recherche carte + liste</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="config.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Suivi des annonces</h1>
+    <p class="subtitle">Recherche API, carte Leaflet, décisions à deux</p>
+  </header>
+
+  <main>
+    <section class="search-box">
+      <div class="row">
+        <label>Codes postaux / villes (séparés par virgules)</label>
+        <input id="zipcodes" placeholder="31150, 31620, 31790 ou Toulouse" />
+      </div>
+      <div class="row two">
+        <div>
+          <label>Budget max (€)</label>
+          <input id="price_max" type="number" min="0" step="50" placeholder="1200" />
+        </div>
+        <div>
+          <label>Pièces min</label>
+          <input id="rooms_min" type="number" min="1" max="10" placeholder="4" />
+        </div>
+        <div>
+          <label>Pièces max</label>
+          <input id="rooms_max" type="number" min="1" max="12" placeholder="7" />
+        </div>
+      </div>
+      <div class="row">
+        <button id="search" class="btn primary">Rechercher</button>
+        <button id="reset" class="btn">Réinitialiser</button>
+      </div>
+    </section>
+
+    <div id="map"></div>
+
+    <section class="toolbar">
+      <input id="q" placeholder="Filtre (ville, prix, surface…)" />
+      <button id="export" class="btn">Exporter CSV</button>
+      <button id="clear-decisions" class="btn">Effacer décisions</button>
+    </section>
+
+    <section id="results" class="results"></section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
