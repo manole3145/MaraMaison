@@ -1,3 +1,3 @@
 window.__CONFIG__ = {
-  API_BASE: "https://leboncoin-recap-v5.onrender.com"
+  API_BASE: "https://MaraMaison.onrender.com"
 };
