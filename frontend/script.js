@@ -82,6 +82,15 @@ function renderCard(item){
   `;
   div.appendChild(img); div.appendChild(body);
 
+  const applyDecisionBorder = (state)=>{
+    if(state === 'like'){ body.style.border = '2px solid #bde4c6'; }
+    else if(state === 'no'){ body.style.border = '2px solid #ffd6d6'; }
+    else if(state === 'maybe'){ body.style.border = '2px solid #fff3bf'; }
+    else { body.style.border = ''; }
+  };
+
+  applyDecisionBorder(decision.state);
+
   body.querySelectorAll('.smallbtn[data-action]').forEach(btn=>{
     btn.addEventListener('click', ()=>{
       const action = btn.dataset.action;
@@ -89,7 +98,7 @@ function renderCard(item){
       else {
         const s = loadSaved(); s[item.url] = s[item.url] || { state:'none', note:'' };
         s[item.url].state = action; saveSaved(s);
-        body.style.border = action==='like'?'2px solid #bde4c6': action==='no'?'2px solid #ffd6d6':'2px solid #fff3bf';
+        applyDecisionBorder(action);
       }
     });
   });
